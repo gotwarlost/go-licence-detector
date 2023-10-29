@@ -114,7 +114,7 @@ func parseDependencies(data io.Reader, includeIndirect bool) (*dependencies, err
 			return deps, fmt.Errorf("failed to parse dependencies: %w", err)
 		}
 
-		if !mod.Main && mod.Dir != "" {
+		if !mod.Main {
 			if mod.Indirect {
 				if includeIndirect {
 					deps.indirect = append(deps.indirect, &mod)
